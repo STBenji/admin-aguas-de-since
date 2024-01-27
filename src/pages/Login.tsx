@@ -1,41 +1,75 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { Button, Input } from '@nextui-org/react'
+import { SubmitHandler, useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 
 import { Card } from '../components/Card'
 
+interface FormData {
+  username: string
+  password: string
+}
+
 export default function Login() {
-  const formRef = useRef<HTMLFormElement>(null)
-  const [isValid, setIsValid] = useState({
-    username: true,
-    password: true
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm({
+    defaultValues: {
+      username: '',
+      password: ''
+    }
   })
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const navigate = useNavigate()
+
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
+
+  const onSubmit: SubmitHandler<FormData> = (data) => {
+    console.log(data)
+    setIsSubmitting(true)
+    setTimeout(() => {
+      navigate('/dashboard')
+    }, 1000)
+  }
 
   return (
     <section className='grid h-screen px-8 md:px-0 place-content-center'>
       <Card
-        className='flex flex-col justify-center gap-10 bg-white'
+        className='flex flex-col justify-center gap-10 shadow max-w-96 max-h-96'
         isRounded>
         <h2 className='font-semibold text-large'>Digita tus credenciales para continuar</h2>
         <form
-          ref={formRef}
-          className='grid grid-rows-3 gap-6'>
-          <Input
-            label='Usuario'
-            name='username'
-            required
-            isInvalid={!isValid.username}
-            errorMessage={!isValid.username && 'El usuario no está vacío o no tiene como mínimo 3 letras'}
-            variant='bordered'
-          />
-          <Input
-            label='Contraseña'
-            name='password'
-            required
-            isInvalid={!isValid.password}
-            errorMessage={!isValid.password && 'La contraseña debe ser de 8 carácteres, 1 mayúscula, 1 minúscula y 1 número'}
-            variant='bordered'
-          />
+          onSubmit={handleSubmit(onSubmit)}
+          className='flex flex-col w-full'>
+          <section className='flex flex-col gap-3 min-h-20'>
+            <Input
+              {...register('username', { required: 'El campo usuario es obligatorio' })}
+              label='Usuario'
+              name='username'
+              required
+              isInvalid={!!errors.username?.message}
+              errorMessage={errors.username?.message}
+              variant='bordered'
+            />
+          </section>
+          <section className='flex flex-col gap-3 min-h-24'>
+            <Input
+              {...register('password', {
+                required: 'El campo contraseña es obligatorio',
+                minLength: {
+                  value: 8,
+                  message: 'La contraseña debe ser de 8 carácteres, 1 mayúscula y minúscula.'
+                }
+              })}
+              label='Contraseña'
+              name='password'
+              required
+              isInvalid={!!errors.password?.message}
+              errorMessage={errors.password?.message}
+              variant='bordered'
+            />
+          </section>
           <Button
             type='submit'
             color='primary'
