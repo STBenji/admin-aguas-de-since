@@ -7,5 +7,5 @@ interface CardProps extends HTMLAttributes<HTMLElement> {
 }
 
 export const Card = ({ children, isRounded, className }: CardProps) => {
-  return <div className={twMerge('w-full h-full p-10', isRounded && 'rounded-xl', className)}>{children}</div>
+  return <div className={twMerge('w-full h-full p-10 bg-white', isRounded && 'rounded-xl', className)}>{children}</div>
 }

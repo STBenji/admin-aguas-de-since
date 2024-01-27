@@ -14,7 +14,7 @@ export default function Login() {
   return (
     <section className='grid h-screen px-8 md:px-0 place-content-center'>
       <Card
-        className='flex flex-col justify-center gap-10 bg-white'
+        className='flex flex-col justify-center gap-10 shadow'
         isRounded>
         <h2 className='font-semibold text-large'>Digita tus credenciales para continuar</h2>
         <form
