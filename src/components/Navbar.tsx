@@ -1,4 +1,5 @@
 import { Navbar, NavbarContent, NavbarMenuToggle, NavbarItem, NavbarMenuItem, NavbarMenu, Button, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, NavbarBrand } from '@nextui-org/react'
+import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { DropDownIcon, Logo } from './icons'
 
@@ -8,7 +9,9 @@ export default function NavbarComponent() {
   const menuItems = ['Usuarios', 'Facturas', 'Transparencia']
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen}>
+    <Navbar
+      onMenuOpenChange={setIsMenuOpen}
+      position='sticky'>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
@@ -25,8 +28,12 @@ export default function NavbarComponent() {
       <NavbarContent
         className='hidden gap-16 sm:flex'
         justify='center'>
-        <NavbarItem className='cursor-pointer'>Usuarios</NavbarItem>
-        <NavbarItem className='cursor-pointer'>Facturas</NavbarItem>
+        <NavbarItem className='cursor-pointer'>
+          <Link to='/users'>Usuarios</Link>
+        </NavbarItem>
+        <NavbarItem className='cursor-pointer'>
+          <Link to='/bills'>Facturas</Link>
+        </NavbarItem>
         <Dropdown>
           <NavbarItem className='text-sm'>
             <DropdownTrigger>
