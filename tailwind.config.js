@@ -7,7 +7,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: { ...colors.blue, DEFAULT: colors.blue[600] },
+        primary: { ...colors.blue, DEFAULT: '#1090cb', darken: '#004fb6', lighter: '#1090cb10' },
+        secondary: { ...colors.cyan, DEFAULT: '#08d3bb' },
+        terciary: colors.white,
         base: '#f5f5f5'
       }
     }
