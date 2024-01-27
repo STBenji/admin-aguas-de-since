@@ -1,5 +1,5 @@
 import { Button, Image } from '@nextui-org/react'
-import { Card } from '../../components/Card'
+import { Card } from '../components/Card'
 
 export default function DashboardPage() {
   return (
