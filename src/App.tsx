@@ -4,7 +4,7 @@ import { createBrowserRouter } from 'react-router-dom'
  * Components
  */
 import Login from './pages/Login'
-import DashboardPage from './pages/Dashboard/Dashboard'
+import DashboardPage from './pages/Dashboard'
 import Loading from './lib/Loading'
 import Layout from './Layout'
 

@@ -11,7 +11,8 @@ export default function NavbarComponent() {
   return (
     <Navbar
       onMenuOpenChange={setIsMenuOpen}
-      position='sticky'>
+      position='sticky'
+      className='h-navbar'>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}

@@ -11,6 +11,10 @@ export default {
         secondary: { ...colors.cyan, DEFAULT: '#08d3bb' },
         terciary: colors.white,
         base: '#f5f5f5'
+      },
+      height: {
+        navbar: '4rem',
+        'full-screen': 'calc(100vh - 4rem)'
       }
     }
   },

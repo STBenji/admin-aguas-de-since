@@ -21,9 +21,9 @@ export default function Layout() {
   //   </div>
   // ) : null
   return (
-    <div>
+    <main className='min-h-screen'>
       <NavbarComponent />
       <Outlet />
-    </div>
+    </main>
   )
 }
