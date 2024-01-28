@@ -50,7 +50,9 @@ export default function NavbarComponent() {
           </NavbarItem>
 
           <DropdownMenu>
-            <DropdownItem key='Transparencia'>Transparencia</DropdownItem>
+            <DropdownItem key='Transparencia'>
+              <Link to='/content/transparency'>Transparencia</Link>
+            </DropdownItem>
           </DropdownMenu>
         </Dropdown>
       </NavbarContent>
