@@ -8,22 +8,16 @@ export default function Layout() {
   const navigate = useNavigate()
 
   useEffect(() => {
+    console.log(auth)
     if (!auth) {
-      // console.log('holaa')
-      // navigate('/')
+      navigate('/login')
     }
   }, [])
 
-  // return auth ? (
-  //   <div>
-  //     <NavbarComponent />
-  //     <Outlet />
-  //   </div>
-  // ) : null
-  return (
-    <main className='min-h-screen'>
+  return auth ? (
+    <div>
       <NavbarComponent />
       <Outlet />
-    </main>
-  )
+    </div>
+  ) : null
 }
