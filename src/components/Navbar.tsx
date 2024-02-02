@@ -10,7 +10,10 @@ export default function NavbarComponent() {
   const menuItems = ['Usuarios', 'Facturas', 'Transparencia']
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen}>
+    <Navbar
+      onMenuOpenChange={setIsMenuOpen}
+      position='sticky'
+      className='h-navbar'>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
@@ -51,7 +54,9 @@ export default function NavbarComponent() {
           </NavbarItem>
 
           <DropdownMenu>
-            <DropdownItem key='Transparencia'>Transparencia</DropdownItem>
+            <DropdownItem key='Transparencia'>
+              <Link to='/content/transparency'>Transparencia</Link>
+            </DropdownItem>
           </DropdownMenu>
         </Dropdown>
       </NavbarContent>
