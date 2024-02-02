@@ -8,7 +8,7 @@ export const useAuth = () => {
 
   useEffect(() => {
     axios
-      .post('http://localhost:3000/api/v1/users/auth', {}, { withCredentials: true })
+      .post(`${import.meta.env.VITE_API_ROUTE}/v1/users/auth`, {}, { withCredentials: true })
       .then(() => {
         navigate('/dashboard')
         return
