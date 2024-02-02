@@ -3,7 +3,7 @@ import { Button, Input } from '@nextui-org/react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 
-import { Card } from '../components/Card'
+import Card from '../components/Card'
 
 interface FormData {
   username: string
