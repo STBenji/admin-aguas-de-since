@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Button, Input } from '@nextui-org/react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 import Card from '../components/Card'
 
@@ -25,12 +26,13 @@ export default function Login() {
 
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
 
-  const onSubmit: SubmitHandler<FormData> = (data) => {
-    console.log(data)
+  const onSubmit: SubmitHandler<FormData> = async (payload) => {
     setIsSubmitting(true)
-    setTimeout(() => {
-      navigate('/dashboard')
-    }, 1000)
+    await axios.post(`http://localhost:3000/api/v1/users/login`, payload, {
+      withCredentials: true
+    })
+    setIsSubmitting(false)
+    navigate('/dashboard')
   }
 
   return (

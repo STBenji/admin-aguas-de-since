@@ -1,13 +1,27 @@
 import { Navbar, NavbarContent, NavbarMenuToggle, NavbarItem, NavbarMenuItem, NavbarMenu, Button, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, NavbarBrand } from '@nextui-org/react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { DropDownIcon, Logo } from './icons'
-import { Link, useLocation } from 'react-router-dom'
+import axios from 'axios'
 
 export default function NavbarComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const location = useLocation()
   const { pathname } = location
+  const navigate = useNavigate()
+
   const menuItems = ['Usuarios', 'Facturas', 'Transparencia']
+
+  const logout = () => {
+    axios
+      .post(`${import.meta.env.VITE_API_ROUTE}/v1/users/logout`, {}, { withCredentials: true })
+      .then(() => {
+        navigate('/login')
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  }
 
   return (
     <Navbar
@@ -76,7 +90,8 @@ export default function NavbarComponent() {
           <Button
             color='danger'
             href='#'
-            variant='flat'>
+            variant='flat'
+            onClick={logout}>
             Cerrar sesión
           </Button>
         </NavbarItem>
