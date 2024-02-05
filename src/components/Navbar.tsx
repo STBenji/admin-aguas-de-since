@@ -5,8 +5,8 @@ import { Link, useLocation } from 'react-router-dom'
 
 export default function NavbarComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  // const pathname = useLocation()
-
+  const location = useLocation()
+  const { pathname } = location
   const menuItems = ['Usuarios', 'Facturas', 'Transparencia']
 
   return (
@@ -28,15 +28,26 @@ export default function NavbarComponent() {
       </NavbarContent>
 
       <NavbarContent
-        className='hidden gap-16 sm:flex'
+        className='hidden gap-12 sm:flex'
         justify='center'>
-        <NavbarItem className='cursor-pointer'>
+        <NavbarItem
+          className='cursor-pointer'
+          isActive={pathname === '/dashboard'}>
           <Link to={'/dashboard'}>Inicio</Link>
         </NavbarItem>
-        <NavbarItem className='cursor-pointer'>
+        <NavbarItem
+          className='cursor-pointer'
+          isActive={pathname === '/users'}>
           <Link to={'/users'}>Usuarios</Link>
         </NavbarItem>
-        <NavbarItem className='cursor-pointer'>
+        <NavbarItem
+          className='cursor-pointer'
+          isActive={pathname === '/request'}>
+          <Link to={'/request'}>Solicitudes</Link>
+        </NavbarItem>
+        <NavbarItem
+          className='cursor-pointer'
+          isActive={pathname === '/bills'}>
           <Link to={'/bills'}>Facturas</Link>
         </NavbarItem>
         <Dropdown>

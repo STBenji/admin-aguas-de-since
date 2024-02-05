@@ -8,6 +8,8 @@ import DashboardPage from './pages/Dashboard'
 import Loading from './lib/Loading'
 import Layout from './Layout'
 import ContentManager from './pages/ContentManager'
+import UserPage from './pages/Users'
+import Request from './pages/requests'
 
 export const router = createBrowserRouter([
   {
@@ -20,7 +22,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'users',
-        element: <DashboardPage />
+        element: <UserPage />
       },
       {
         path: 'bills',
@@ -35,6 +37,10 @@ export const router = createBrowserRouter([
             element: <ContentManager />
           }
         ]
+      },
+      {
+        path: '/request',
+        element: <Request />
       }
     ]
   },
