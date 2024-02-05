@@ -1,11 +1,13 @@
 import { Navbar, NavbarContent, NavbarMenuToggle, NavbarItem, NavbarMenuItem, NavbarMenu, Button, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, NavbarBrand } from '@nextui-org/react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { DropDownIcon, Logo } from './icons'
 import axios from 'axios'
 
 export default function NavbarComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const location = useLocation()
+  const { pathname } = location
   const navigate = useNavigate()
 
   const menuItems = ['Usuarios', 'Facturas', 'Transparencia']
@@ -40,15 +42,26 @@ export default function NavbarComponent() {
       </NavbarContent>
 
       <NavbarContent
-        className='hidden gap-16 sm:flex'
+        className='hidden gap-12 sm:flex'
         justify='center'>
-        <NavbarItem className='cursor-pointer'>
+        <NavbarItem
+          className='cursor-pointer'
+          isActive={pathname === '/dashboard'}>
           <Link to={'/dashboard'}>Inicio</Link>
         </NavbarItem>
-        <NavbarItem className='cursor-pointer'>
+        <NavbarItem
+          className='cursor-pointer'
+          isActive={pathname === '/users'}>
           <Link to={'/users'}>Usuarios</Link>
         </NavbarItem>
-        <NavbarItem className='cursor-pointer'>
+        <NavbarItem
+          className='cursor-pointer'
+          isActive={pathname === '/request'}>
+          <Link to={'/request'}>Solicitudes</Link>
+        </NavbarItem>
+        <NavbarItem
+          className='cursor-pointer'
+          isActive={pathname === '/bills'}>
           <Link to={'/bills'}>Facturas</Link>
         </NavbarItem>
         <Dropdown>

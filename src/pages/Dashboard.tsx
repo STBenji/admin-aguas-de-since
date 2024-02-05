@@ -6,7 +6,7 @@ export default function DashboardPage() {
   return (
     <main className='flex flex-col h-screen gap-12 bg-base'>
       <section className='pt-10 text-2xl font-bold text-center'>
-        <h1>¡Bienvenido! ¿Qué deseas realizar?</h1>
+        <h2>¡Bienvenido! ¿Qué deseas realizar?</h2>
       </section>
       <section className='flex items-center justify-center gap-5 '>
         <Card className='w-[12rem] h-[12rem] md:w-[15rem] md:h-[15rem]  grid place-content-center rounded-xl bg-white border'>

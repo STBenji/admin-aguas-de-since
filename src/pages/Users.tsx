@@ -1,9 +1,8 @@
-import { Image, Input, Pagination, Card as CardN, Skeleton } from '@nextui-org/react'
-import NavbarComponent from '../components/Navbar'
+import { Image, Input, Pagination } from '@nextui-org/react'
 import { useState, lazy, Suspense } from 'react'
 import { SearchIcon } from '../components/icons'
 import ModalComponent from '../components/Modal'
-import Loading from '../components/Loading'
+import Loading from '../lib/Loading'
 
 const Card = lazy(() => import('../components/Card'))
 
@@ -61,7 +60,7 @@ export default function UserPage() {
   }
 
   return (
-    <Suspense fallback={<Loading></Loading>}>
+    <Suspense fallback={<Loading />}>
       {userData && userData.length > 0 && (
         <ModalComponent
           handleOpen={isOpen}
@@ -70,11 +69,10 @@ export default function UserPage() {
         />
       )}
 
-      <section className='relative flex flex-col items-center justify-start w-full h-screen'>
-        <NavbarComponent />
+      <section className='relative flex flex-col items-center justify-start w-full '>
         <section className='grid py-8 text-2xl font-bold place-content-center gap-7'>
           <section className='flex flex-col items-center justify-between gap-2'>
-            <h1>Usuarios</h1>
+            <h2>Usuarios</h2>
             <Input
               type='text'
               variant='bordered'
@@ -97,7 +95,7 @@ export default function UserPage() {
                     height={100}
                   />
                   <section className='flex flex-col items-start w-full gap-2 text-xl min-w-[12rem] h-[8rem] '>
-                    <h1 className='line-clamp-2'>{item.nombre + ' ' + item.apellido}</h1>
+                    <h2 className='line-clamp-2'>{item.nombre + ' ' + item.apellido}</h2>
                     <p className='text-sm font-normal text-gray-400'>Celular: {item.celular}</p>
                     <p className='text-lg font-normal text-gray-400'>Documento: {item.numeroDocumento}</p>
                   </section>
@@ -105,7 +103,7 @@ export default function UserPage() {
               ))
             ) : (
               <section>
-                <h1>hola</h1>
+                <h3>hola</h3>
               </section>
             )}
           </article>
