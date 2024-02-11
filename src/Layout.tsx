@@ -4,8 +4,6 @@ import { useAuth } from './hooks/useAuth'
 
 export default function Layout() {
   const { error } = useAuth()
-  console.log(error)
-  console.log('hola')
 
   return error === null ? (
     <>
