@@ -46,8 +46,8 @@ export default function NavbarComponent() {
         justify='center'>
         <NavbarItem
           className='cursor-pointer'
-          isActive={pathname === '/dashboard'}>
-          <Link to={'/dashboard'}>Inicio</Link>
+          isActive={pathname === '/'}>
+          <Link to={'/'}>Inicio</Link>
         </NavbarItem>
         <NavbarItem
           className='cursor-pointer'

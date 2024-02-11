@@ -4,13 +4,13 @@ import { useAuth } from './hooks/useAuth'
 
 export default function Layout() {
   const { error } = useAuth()
+  console.log(error)
+  console.log('hola')
 
-  if (error) return null
-
-  return (
-    <div>
+  return error === null ? (
+    <>
       <NavbarComponent />
       <Outlet />
-    </div>
-  )
+    </>
+  ) : null
 }
