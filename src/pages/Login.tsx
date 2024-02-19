@@ -32,7 +32,7 @@ export default function Login() {
       withCredentials: true
     })
     setIsSubmitting(false)
-    navigate('/dashboard')
+    navigate('/')
   }
 
   return (

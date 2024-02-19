@@ -13,23 +13,22 @@ import RequestUser from './pages/requests'
 
 export const router = createBrowserRouter([
   {
-    path: '/',
     element: <Layout />,
     children: [
       {
-        path: 'dashboard',
+        path: '/',
         element: <DashboardPage />
       },
       {
-        path: 'users',
+        path: '/users',
         element: <UserPage />
       },
       {
-        path: 'bills',
+        path: '/bills',
         element: <Loading />
       },
       {
-        path: 'content',
+        path: '/content',
         element: <Outlet />,
         children: [
           {
