@@ -13,26 +13,27 @@ import DashboardPage from './pages/Dashboard'
 import Loading from './lib/Loading'
 import Layout from './Layout'
 import ContentManager from './pages/ContentManager'
+import UserPage from './pages/Users'
+import RequestUser from './pages/requests'
 
 export const router = createBrowserRouter([
   {
-    path: '/',
     element: <Layout />,
     children: [
       {
-        path: 'dashboard',
+        path: '/',
         element: <DashboardPage />
       },
       {
-        path: 'users',
-        element: <DashboardPage />
+        path: '/users',
+        element: <UserPage />
       },
       {
-        path: 'bills',
+        path: '/bills',
         element: <Loading />
       },
       {
-        path: 'content',
+        path: '/content',
         element: <Outlet />,
         children: [
           {
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
             element: <ContentManager />
           }
         ]
+      },
+      {
+        path: '/request',
+        element: <RequestUser />
       }
     ]
   },
