@@ -10,7 +10,28 @@ export default function NavbarComponent() {
   const { pathname } = location
   const navigate = useNavigate()
 
-  const menuItems = ['Usuarios', 'Facturas', 'Transparencia']
+  const menuItems = [
+    {
+      pathname: '/dashboard',
+      title: 'Inicio'
+    },
+    {
+      pathname: '/users',
+      title: 'Usuarios'
+    },
+    {
+      pathname: '/request',
+      title: 'Solicitudes'
+    },
+    {
+      pathname: '/bills',
+      title: 'Facturas'
+    },
+    {
+      pathname: '/content/transparency',
+      title: 'Transparencia'
+    }
+  ]
 
   const logout = () => {
     axios
@@ -46,8 +67,8 @@ export default function NavbarComponent() {
         justify='center'>
         <NavbarItem
           className='cursor-pointer'
-          isActive={pathname === '/dashboard'}>
-          <Link to={'/dashboard'}>Inicio</Link>
+          isActive={pathname === '/'}>
+          <Link to={'/'}>Inicio</Link>
         </NavbarItem>
         <NavbarItem
           className='cursor-pointer'
@@ -98,7 +119,9 @@ export default function NavbarComponent() {
       </NavbarContent>
       <NavbarMenu>
         {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>{item}</NavbarMenuItem>
+          <NavbarMenuItem key={`${item}-${index}`}>
+            <Link to={item.pathname}>{item.title}</Link>
+          </NavbarMenuItem>
         ))}
       </NavbarMenu>
     </Navbar>

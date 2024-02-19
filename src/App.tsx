@@ -9,27 +9,26 @@ import Loading from './lib/Loading'
 import Layout from './Layout'
 import ContentManager from './pages/ContentManager'
 import UserPage from './pages/Users'
-import Request from './pages/requests'
+import RequestUser from './pages/requests'
 
 export const router = createBrowserRouter([
   {
-    path: '/',
     element: <Layout />,
     children: [
       {
-        path: 'dashboard',
+        path: '/',
         element: <DashboardPage />
       },
       {
-        path: 'users',
+        path: '/users',
         element: <UserPage />
       },
       {
-        path: 'bills',
+        path: '/bills',
         element: <Loading />
       },
       {
-        path: 'content',
+        path: '/content',
         element: <Outlet />,
         children: [
           {
@@ -40,7 +39,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/request',
-        element: <Request />
+        element: <RequestUser />
       }
     ]
   },
