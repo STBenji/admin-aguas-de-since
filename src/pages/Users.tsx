@@ -45,6 +45,7 @@ export default function UserPage() {
   const endIndex = startIndex + usersPerPage
   const displayedUsers = users.slice(startIndex, endIndex)
 
+
   const handlePageChange = (newPage: number) => {
     setPage(newPage)
   }
@@ -122,5 +123,6 @@ export default function UserPage() {
         </section>
       </section>
     </Suspense>
+
   )
 }

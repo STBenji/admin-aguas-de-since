@@ -1,10 +1,12 @@
 import { Button, Image } from '@nextui-org/react'
 import Card from '../components/Card'
+
 import { Link } from 'react-router-dom'
 
 export default function DashboardPage() {
   return (
     <main className='flex flex-col h-screen gap-12 bg-base'>
+
       <section className='pt-10 text-2xl font-bold text-center'>
         <h2>¡Bienvenido! ¿Qué deseas realizar?</h2>
       </section>
