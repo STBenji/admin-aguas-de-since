@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom'
 export default function DashboardPage() {
   return (
     <main className='flex flex-col h-screen gap-12 bg-base'>
-      <NavbarComponent />
+
       <section className='pt-10 text-2xl font-bold text-center'>
-        <h1>¡Bienvenido!, ¿Qué deseas realizar?</h1>
+        <h1>¡Bienvenido! ¿Qué deseas realizar?</h1>
       </section>
       <section className='flex items-center justify-center gap-5 '>
         <Card className='w-[12rem] h-[12rem] md:w-[15rem] md:h-[15rem]  grid place-content-center rounded-xl bg-white border'>
@@ -21,6 +21,7 @@ export default function DashboardPage() {
             <Button variant='bordered'>
               <Link to={'/users'}>ver usuarios</Link>
             </Button>
+            <Button variant='bordered'>ver usuarios</Button>
           </footer>
         </Card>
         <Card className='w-[12rem] h-[12rem] md:w-[15rem] md:h-[15rem] grid place-content-center gap-3 rounded-xl bg-white border'>
