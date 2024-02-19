@@ -17,7 +17,7 @@ export default function RequestUser() {
   const [page, setPage] = useState<number>(1)
 
   const users: DataUser[] = [
-    { nombre: 'Stiven', apellido: 'Blandón Urrego', celular: '123456789', numeroDocumento: '12345678', tipoDocumento: 'CC', servicios: 'Acueducto y Alcantarillado', direccion: 'cr 24 # 75 c - 118 int 107', barrio: 'Manrique La cruz' },
+    { nombre: 'Stiven', apellido: 'Blandón Urrego', celular: '123456789', numeroDocumento: '12345678', tipoDocumento: 'CC', servicios: 'Acueducto y Alcantarillado', direccion: 'cr 24 # 75 c - 118 int 107', barrio: 'La cruz' },
     { nombre: 'Guillermo Stiven', apellido: 'Benjumea Morales', celular: '987654321', numeroDocumento: '87654321', tipoDocumento: 'CC', servicios: 'Alcantarillado', direccion: 'cr 24 # 75 c - 118 int 107', barrio: 'Manrique La cruz' },
     { nombre: 'Carlos Eduardo', apellido: 'Morales Estrada', celular: '112233445', numeroDocumento: '11223344', tipoDocumento: 'CC', servicios: 'Acueducto y Alcantarillado', direccion: 'cr 24 # 75 c - 118 int 107', barrio: 'Manrique La cruz' },
     { nombre: 'Ana', apellido: 'Martínez', celular: '556677889', numeroDocumento: '55667788', tipoDocumento: 'CC', servicios: 'Acueducto y Alcantarillado', direccion: 'cr 24 # 75 c - 118 int 107', barrio: 'Manrique La cruz' },
